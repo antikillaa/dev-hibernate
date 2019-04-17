@@ -7,7 +7,7 @@ public class TestJdbc {
 
     public static void main(String[] args) {
 
-        String jdbcUrl2 = "jdbc:postgresql://localhost:5432/postgres?db=hb_student_tracker";
+        String jdbcUrl2 = "jdbc:postgresql://localhost:5432/hb_student_tracker";
 
         String user = "admin";
         String pass = "password";
