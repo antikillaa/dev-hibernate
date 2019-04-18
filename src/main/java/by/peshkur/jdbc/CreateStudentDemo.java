@@ -33,6 +33,7 @@ public class CreateStudentDemo {
             System.out.println("Done!");
 
         } finally {
+            session.close();
             factory.close();
         }
     }

@@ -1,14 +1,19 @@
 package by.peshkur.jdbc.model;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
-@Entity
+@Entity(name = "Student")
 @Table(name = "student")
-public class Student {
+public class Student implements Serializable, Cloneable {
+
+    private static final long serialVersionUID = -7049957706738879274L;
+
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "student_id_seq")
+    @SequenceGenerator(name = "student_id_seq", sequenceName = "student_id_seq", allocationSize = 1)
+    @Column(name = "id", unique = true, nullable = false)
     private int id;
 
     @Column(name = "first_name")
