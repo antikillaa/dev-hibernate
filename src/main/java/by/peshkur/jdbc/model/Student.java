@@ -1,14 +1,10 @@
 package by.peshkur.jdbc.model;
 
 import javax.persistence.*;
-import java.io.Serializable;
 
 @Entity(name = "Student")
 @Table(name = "student")
-public class Student implements Serializable, Cloneable {
-
-    private static final long serialVersionUID = -7049957706738879274L;
-
+public class Student {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "student_id_seq")
