@@ -20,19 +20,23 @@ public class ReadStudentDemo {
         try {
             session.beginTransaction();
 
-            List<Student> students = session.createQuery("from Student").getResultList();
-
+            List students = session.createQuery("from Student").getResultList();
             displayStudents(students);
-
 
             students = session.createQuery("from Student s where s.lastName='Doe'").getResultList();
-
             System.out.println("\n\nStudents who las name of Doe");
+            displayStudents(students);
 
+            //query students: last name Dor OR first name Daffy
+            students = session.createQuery("from Student s where s.lastName='Doe' OR s.firstName='Daffy'").getResultList();
+            System.out.println("\n\nStudents: last name Dor OR first name Daffy");
             displayStudents(students);
 
 
-            System.out.println();
+            //query students: email LIKE '%luv2code.com'
+            students = session.createQuery("from Student s where s.email LIKE '%gmail.com'").getResultList();
+            System.out.println("\n\nStudents: email LIKE '%luv2code.com");
+            displayStudents(students);
 
             session.getTransaction().commit();
 
