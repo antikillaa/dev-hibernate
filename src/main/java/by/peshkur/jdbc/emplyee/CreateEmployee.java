@@ -1,36 +1,25 @@
-package by.peshkur.jdbc;
+package by.peshkur.jdbc.emplyee;
 
-import by.peshkur.jdbc.model.Student;
+import by.peshkur.jdbc.model.Employee;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-
-public class CreateStudentDemo {
-
+public class CreateEmployee {
     public static void main(String[] args) {
 
         SessionFactory factory = new Configuration()
                 .configure("hibernate.cfg.xml")
-                .addAnnotatedClass(Student.class)
+                .addAnnotatedClass(Employee.class)
                 .buildSessionFactory();
-
         Session session = factory.getCurrentSession();
 
         try {
-            System.out.println("Creating new student object...");
 
-            Student student = new Student("Paul", "Wall", "paul@luv.com");
-
+            Employee employee = new Employee("Soul", "Alex", "Andersen");
             session.beginTransaction();
-
-            System.out.println("Saving the student...");
-
-            session.save(student);
-
+            session.save(employee);
             session.getTransaction().commit();
-
-            System.out.println("Done!");
 
         } finally {
             factory.close();

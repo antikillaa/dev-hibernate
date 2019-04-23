@@ -1,36 +1,32 @@
-package by.peshkur.jdbc;
+package by.peshkur.jdbc.emplyee.crud;
 
-import by.peshkur.jdbc.model.Student;
+import by.peshkur.jdbc.model.Employee;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
+import java.util.List;
 
-public class CreateStudentDemo {
-
+public class GetEmployee {
     public static void main(String[] args) {
 
         SessionFactory factory = new Configuration()
                 .configure("hibernate.cfg.xml")
-                .addAnnotatedClass(Student.class)
+                .addAnnotatedClass(Employee.class)
                 .buildSessionFactory();
-
         Session session = factory.getCurrentSession();
 
         try {
-            System.out.println("Creating new student object...");
-
-            Student student = new Student("Paul", "Wall", "paul@luv.com");
-
             session.beginTransaction();
+//            List employees = session.createQuery("from Employee").getResultList();
 
-            System.out.println("Saving the student...");
+            List<Employee> employees = session.createQuery("from Employee e where e.company = 'Epam'").getResultList();
 
-            session.save(student);
+            for (Employee employee : employees) {
+                System.out.println("\n\n" + employee);
 
+            }
             session.getTransaction().commit();
-
-            System.out.println("Done!");
 
         } finally {
             factory.close();
