@@ -1,6 +1,6 @@
-package by.peshkur.jdbc;
+package by.peshkur.jdbc.introduce;
 
-import by.peshkur.jdbc.model.Student;
+import by.peshkur.jdbc.introduce.model.Student;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;

@@ -1,11 +1,11 @@
-package by.peshkur.jdbc.crud;
+package by.peshkur.jdbc.introduce.crud;
 
-import by.peshkur.jdbc.model.Student;
+import by.peshkur.jdbc.introduce.model.Student;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-public class QueryStudentDemo {
+public class UpdateStudentDemo {
     public static void main(String[] args) {
 
         SessionFactory factory = new Configuration()
@@ -16,36 +16,38 @@ public class QueryStudentDemo {
         Session session = factory.getCurrentSession();
 
         try {
-            System.out.println("Creating new student object...");
-
-            Student student = new Student("Daffy", "Duck", "duffy@luv.com");
-
+            int studentId = 1;
             session.beginTransaction();
 
-            System.out.println("Saving the student...");
-            System.out.println(student);
-            session.save(student);
+            System.out.println("\nGetting student with id " + studentId);
+
+            Student student = session.get(Student.class, studentId);
+
+            System.out.println("Updating student...");
+            student.setFirstName("Stasi4");
 
             session.getTransaction().commit();
 
-
-            System.out.println("Saved student. Generated id: " + student.getId());
+            //Bulk update
 
             session = factory.getCurrentSession();
             session.beginTransaction();
 
-            System.out.println("\nGetting student with id: " + student.getId());
+            // update email for all students
+            System.out.println("Update email for all students");
 
-            Student student1 = session.get(Student.class, student.getId());
+            session.createQuery("update Student s set s.email='foooo@gmail.com'").executeUpdate();
 
-            System.out.println("Get complite: " + student1);
-
+            // commit the transaction
             session.getTransaction().commit();
 
+
             System.out.println("Done!");
+
 
         } finally {
             factory.close();
         }
     }
+
 }

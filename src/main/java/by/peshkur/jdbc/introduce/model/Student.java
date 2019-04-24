@@ -1,4 +1,4 @@
-package by.peshkur.jdbc.model;
+package by.peshkur.jdbc.introduce.model;
 
 import javax.persistence.*;
 

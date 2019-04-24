@@ -1,13 +1,11 @@
-package by.peshkur.jdbc.emplyee.crud;
+package by.peshkur.jdbc.introduce.emplyee;
 
-import by.peshkur.jdbc.model.Employee;
+import by.peshkur.jdbc.introduce.model.Employee;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-import java.util.List;
-
-public class GetEmployee {
+public class CreateEmployee {
     public static void main(String[] args) {
 
         SessionFactory factory = new Configuration()
@@ -17,15 +15,10 @@ public class GetEmployee {
         Session session = factory.getCurrentSession();
 
         try {
+
+            Employee employee = new Employee("Soul", "Alex", "Andersen");
             session.beginTransaction();
-//            List employees = session.createQuery("from Employee").getResultList();
-
-            List<Employee> employees = session.createQuery("from Employee e where e.company = 'Epam'").getResultList();
-
-            for (Employee employee : employees) {
-                System.out.println("\n\n" + employee);
-
-            }
+            session.save(employee);
             session.getTransaction().commit();
 
         } finally {

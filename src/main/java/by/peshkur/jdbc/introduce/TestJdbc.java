@@ -1,4 +1,4 @@
-package by.peshkur.jdbc;
+package by.peshkur.jdbc.introduce;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
