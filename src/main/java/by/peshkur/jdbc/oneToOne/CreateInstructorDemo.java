@@ -39,6 +39,7 @@ public class CreateInstructorDemo {
             System.out.println("Done!");
 
         } finally {
+            session.close();
             factory.close();
         }
     }
