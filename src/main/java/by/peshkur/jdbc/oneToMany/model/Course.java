@@ -1,4 +1,4 @@
-package by.peshkur.jdbc.oneToOne.model;
+package by.peshkur.jdbc.oneToMany.model;
 
 import javax.persistence.*;
 

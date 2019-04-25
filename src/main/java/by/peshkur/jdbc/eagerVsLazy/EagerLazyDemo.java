@@ -1,14 +1,14 @@
-package by.peshkur.jdbc.oneToMany;
+package by.peshkur.jdbc.eagerVsLazy;
 
 import by.peshkur.jdbc.oneToMany.model.Course;
-import by.peshkur.jdbc.oneToOne.model.Instructor;
-import by.peshkur.jdbc.oneToOne.model.InstructorDetail;
+import by.peshkur.jdbc.oneToMany.model.Instructor;
+import by.peshkur.jdbc.oneToMany.model.InstructorDetail;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
 
-public class DeleteInstructorCoursesDemo {
+public class EagerLazyDemo {
 
     public static void main(String[] args) {
 
@@ -24,15 +24,19 @@ public class DeleteInstructorCoursesDemo {
         try {
             session.beginTransaction();
 
-            int id = 4;
+            int id = 1;
 
-            Course course = session.get(Course.class, id);
+            Instructor instructor = session.get(Instructor.class, id);
 
-            System.out.println("Deleting course: " + course);
+            System.out.println("luv Instructor: " + instructor);
 
-            session.delete(course);
+            System.out.println("luv Cources: " + instructor.getCourses());
 
             session.getTransaction().commit();
+
+            session.close();
+            System.out.println("luv Cources: " + instructor.getCourses());
+
 
             System.out.println("Done!");
 

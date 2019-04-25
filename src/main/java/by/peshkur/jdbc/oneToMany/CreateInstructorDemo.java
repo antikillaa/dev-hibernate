@@ -1,8 +1,8 @@
 package by.peshkur.jdbc.oneToMany;
 
-import by.peshkur.jdbc.oneToOne.model.Course;
-import by.peshkur.jdbc.oneToOne.model.Instructor;
-import by.peshkur.jdbc.oneToOne.model.InstructorDetail;
+import by.peshkur.jdbc.oneToMany.model.Course;
+import by.peshkur.jdbc.oneToMany.model.Instructor;
+import by.peshkur.jdbc.oneToMany.model.InstructorDetail;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
