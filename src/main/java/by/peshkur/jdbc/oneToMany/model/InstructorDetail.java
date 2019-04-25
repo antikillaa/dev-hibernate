@@ -1,4 +1,4 @@
-package by.peshkur.jdbc.oneToOne.model;
+package by.peshkur.jdbc.oneToMany.model;
 
 import javax.persistence.*;
 
@@ -21,20 +21,20 @@ public class InstructorDetail {
             cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
     private Instructor instructor;
 
-    public Instructor getInstructor() {
-        return instructor;
-    }
-
-    public void setInstructor(Instructor instructor) {
-        this.instructor = instructor;
-    }
-
     public InstructorDetail() {
     }
 
     public InstructorDetail(String youtubeChannel, String hobby) {
         this.youtubeChannel = youtubeChannel;
         this.hobby = hobby;
+    }
+
+    public Instructor getInstructor() {
+        return instructor;
+    }
+
+    public void setInstructor(Instructor instructor) {
+        this.instructor = instructor;
     }
 
     @Override

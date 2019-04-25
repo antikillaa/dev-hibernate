@@ -11,13 +11,11 @@
         <property name="connection.url">jdbc:postgresql://localhost:5432/hb_student_tracker</property>
         <property name="connection.username">admin</property>
         <property name="connection.password">password</property>
-        <property name="hibernate.default_schema">onetooneuni</property>
+        <property name="hibernate.default_schema">onetomany</property>
 
 
         <!-- JDBC connection pool settings ... using built-in test pool -->
         <property name="connection.pool_size">1</property>
-
-        <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
 
         <!-- Echo the SQL to stdout -->
         <property name="show_sql">true</property>
