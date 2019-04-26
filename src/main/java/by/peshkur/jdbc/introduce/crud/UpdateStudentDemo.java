@@ -19,11 +19,11 @@ public class UpdateStudentDemo {
             int studentId = 1;
             session.beginTransaction();
 
-            System.out.println("\nGetting student with id " + studentId);
+            System.out.println("\nGetting Student with id " + studentId);
 
             Student student = session.get(Student.class, studentId);
 
-            System.out.println("Updating student...");
+            System.out.println("Updating Student...");
             student.setFirstName("Stasi4");
 
             session.getTransaction().commit();

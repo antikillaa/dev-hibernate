@@ -16,25 +16,25 @@ public class QueryStudentDemo {
         Session session = factory.getCurrentSession();
 
         try {
-            System.out.println("Creating new student object...");
+            System.out.println("Creating new Student object...");
 
             Student student = new Student("Daffy", "Duck", "duffy@luv.com");
 
             session.beginTransaction();
 
-            System.out.println("Saving the student...");
+            System.out.println("Saving the Student...");
             System.out.println(student);
             session.save(student);
 
             session.getTransaction().commit();
 
 
-            System.out.println("Saved student. Generated id: " + student.getId());
+            System.out.println("Saved Student. Generated id: " + student.getId());
 
             session = factory.getCurrentSession();
             session.beginTransaction();
 
-            System.out.println("\nGetting student with id: " + student.getId());
+            System.out.println("\nGetting Student with id: " + student.getId());
 
             Student student1 = session.get(Student.class, student.getId());
 

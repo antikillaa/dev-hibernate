@@ -1,4 +1,4 @@
-package by.peshkur.jdbc.oneToMany.model;
+package by.peshkur.jdbc.manyToMany.model;
 
 import javax.persistence.*;
 import java.util.ArrayList;

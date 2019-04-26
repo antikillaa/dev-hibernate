@@ -18,13 +18,13 @@ public class CreateStudentDemo {
         Session session = factory.getCurrentSession();
 
         try {
-            System.out.println("Creating new student object...");
+            System.out.println("Creating new Student object...");
 
             Student student = new Student("Paul", "Wall", "paul@luv.com");
 
             session.beginTransaction();
 
-            System.out.println("Saving the student...");
+            System.out.println("Saving the Student...");
 
             session.save(student);
 

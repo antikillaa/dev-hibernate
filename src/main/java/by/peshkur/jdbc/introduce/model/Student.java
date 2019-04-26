@@ -3,7 +3,7 @@ package by.peshkur.jdbc.introduce.model;
 import javax.persistence.*;
 
 @Entity(name = "Student")
-@Table(name = "student")
+@Table(name = "Student")
 public class Student {
 
     @Id

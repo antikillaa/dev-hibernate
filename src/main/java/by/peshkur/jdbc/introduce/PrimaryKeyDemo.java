@@ -18,8 +18,8 @@ public class PrimaryKeyDemo {
         Session session = factory.getCurrentSession();
 
         try {
-            // create 3 student objects
-            System.out.println("Creating 3 student objects...");
+            // create 3 Student objects
+            System.out.println("Creating 3 Student objects...");
             Student tempStudent1 = new Student("John", "Doe", "john@luv2code.com");
             Student tempStudent2 = new Student("Mary", "Public", "mary@luv2code.com");
             Student tempStudent3 = new Student("Bonita", "Applebum", "bonita@luv2code.com");
@@ -27,7 +27,7 @@ public class PrimaryKeyDemo {
             // start a transaction
             session.beginTransaction();
 
-            // save the student object
+            // save the Student object
             System.out.println("Saving the students...");
             session.save(tempStudent1);
             session.save(tempStudent2);
