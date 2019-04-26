@@ -2,13 +2,13 @@ package by.peshkur.jdbc.manyToMany.model;
 
 import javax.persistence.*;
 
-@Entity
+@Entity(name = "Review")
 @Table(name = "review")
 public class Review {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
+    @Column(name = "id", unique = true, nullable = false)
     private Integer id;
 
     @Column(name = "comment")
